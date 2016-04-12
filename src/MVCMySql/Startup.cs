@@ -9,8 +9,8 @@ using Microsoft.Data.Entity;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
-using MVCMySql.Models;
-using MVCMySql.Services;
+using MVCMySql.Areas.MvcDemo.Models;
+using MVCMySql.Areas.MvcDemo.Services;
 
 namespace MVCMySql
 {
@@ -106,7 +106,8 @@ namespace MVCMySql
             {
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}");
+                   
+                    template: "{area:exists}/{controller=Home}/{action=Index}/{id?}");
             });
         }
 
