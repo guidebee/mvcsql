@@ -46,9 +46,9 @@ namespace MVCMySql
             services.AddApplicationInsightsTelemetry(Configuration);
 
             services.AddEntityFramework()
-                .AddSqlite()
+                .AddNpgsql()
                 .AddDbContext<ApplicationDbContext>(options =>
-                    options.UseSqlite(Configuration["Data:DefaultConnection:ConnectionString"]));
+                    options.UseNpgsql(Configuration["Data:DefaultConnection:ConnectionString"]));
 
             services.AddIdentity<ApplicationUser, IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>()
